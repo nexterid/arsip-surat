@@ -26,7 +26,7 @@
 							<?= form_open('auth') ?>
 								<div class="form-group">
 									<label for="email">Username</label>
-									<input id="username" type="text" class="form-control" name="username" value="<?= set_value('username') ?>" required autofocus oninvalid="setCustomValidity('Username tidak boleh kosong !')" oninput="setCustomValidity('')">
+									<input id="username" type="text" class="form-control" name="username" value="<?= old('username') ?>" required autofocus oninvalid="setCustomValidity('Username tidak boleh kosong !')" oninput="setCustomValidity('')">
 								</div>
 								<div class="form-group">
 									<label for="password">Password</label>

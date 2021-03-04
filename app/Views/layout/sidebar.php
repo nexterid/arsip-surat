@@ -32,11 +32,11 @@
                     <a href="'.base_url('home').'"><i class="fa fa-fw fa-home"></i><span> HOME </span> </a>
                 </li>
                 <li class="submenu">
-                    <a href="'.base_url('home').'"><i class="fa fa-envelope"></i><span> SURAT MASUK </span> </a>
+                    <a href="'.base_url('surat/masuk').'"><i class="fa fa-envelope"></i><span> SURAT MASUK </span> </a>
                 </li>
                 <li class="submenu">
-                    <a href="'.base_url('home').'"><i class="fa fa-folder-open"></i><span> SURAT KELUAR </span> </a>
-                </li>                                   
+                    <a href="'.base_url('surat/keluar').'"><i class="fa fa-folder-open"></i><span> SURAT KELUAR </span> </a>
+                </li>                                  
             ';
         }
         

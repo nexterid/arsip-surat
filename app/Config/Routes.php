@@ -21,7 +21,9 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Auth');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override();
+$routes->set404Override(function() {
+	return view('errors/error_404');
+});
 $routes->setAutoRoute(true);
 
 /*
@@ -40,21 +42,31 @@ $routes->get('/logout', 'Auth::logout', ['filter' => 'ceklogin']);
 
 // surat merupakan nama groupnya
 $routes->group('surat', ['filter' => 'ceklogin'], function($routes) {
+    //route surat masuk
     $routes->get('masuk', 'Surat::masuk'); 
-    $routes->get('masuk/download', 'Surat::download');   
+    $routes->get('masuk/download', 'Surat::download');      
     $routes->get('masuk/file/(:any)', 'Surat::getFileSuratMasuk/$1');  
+    $routes->get('kodeunit','Surat::getUnitPegawai');
     $routes->get('keluar', 'Surat::keluar');
+    $routes->get('masuk/disdirektur', 'Surat::disposisiDirektur');
+    $routes->get('masuk/diswadir', 'Surat::disposisiWadir');
+    $routes->get('masuk/disunit', 'Surat::disposisiUnit');
+    $routes->post('disposisi/simpan', 'Surat::saveDisposisi');
     $routes->post('masuk/getdata', 'Surat::getSuratMasuk');
+    // route surat keluar
+    $routes->get('keluar', 'Surat::keluar');
+    $routes->get('keluar/file/(:any)', 'Surat::getFileSuratKeluar/$1');  
+    $routes->post('keluar/getdata', 'Surat::getSuratKeluar');
 });
 
 // user merupakan nama groupnya
 $routes->group('user', ['filter' => 'ceklogin'], function($routes) {
-    $routes->get('/', 'User::index'); 
-    $routes->get('masuk/download', 'Surat::download');   
-    $routes->get('masuk/file/(:any)', 'Surat::getFileSuratMasuk/$1');  
-    $routes->get('keluar', 'Surat::keluar');
-    $routes->post('masuk/getdata', 'Surat::getSuratMasuk');
+    $routes->get('/', 'User::index',['as'=>'user']); 
+    $routes->get('view_data', 'User::view_data');     
+    $routes->get('create', 'User::create');
+    $routes->post('create_action', 'User::create_action');
 });
+ 
 
 /*
  * --------------------------------------------------------------------

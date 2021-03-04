@@ -7,15 +7,15 @@ use CodeIgniter\Model;
 class UserModel extends Model
 {
     protected $table = 'user_access';
-    protected $allowedFields = ['username','password','nama','role','kode_unit'];
-    protected $useTimeStamps = true;
+    protected $allowedFields = ['id','username','password','nama','role','kode_unit'];
+    protected $useTimestamps = true;
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 
     protected $validationRules = [
-        'nama' => 'required',
-        'username' => 'required|valid_email|is_unique[users.email]',
-        'password' => 'required|min_length[6]'
+        'username' => 'required',
+        // 'username' => 'required|is_unique[user_access.username,id,{id}]',
+        // 'password' => 'required|min_length[6]'
     ];
 
     protected $validationMessages = [
@@ -26,6 +26,7 @@ class UserModel extends Model
 
     protected $skipValidation = false;
     protected $beforeInsert = ['hashPassword'];
+    protected $beforeUpdate = ['hashPassword'];
 
     protected function hashPassword(array $data)
     {
@@ -35,12 +36,15 @@ class UserModel extends Model
         $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
         return $data;
     }
-
-    public function getLogin($username)
-    {
-        return $this->db->table($this->table)
-                    ->where('username',$username)
-                    ->get()->getRowArray();
+   
+    public function PilihUnit()
+    {              
+        $result = $this->db->table('tbl_unit')->select('kode_unit,nama_unit')->get()->getResultArray(); 
+        $data[''] = '- Pilih Unit -';
+        foreach ($result as $row) {
+            $data[$row['kode_unit']] = $row['nama_unit'].' ('.$row['kode_unit'].')';
+        }
+        return $data;
     }
     
 }

@@ -18,7 +18,7 @@
         <!-- end row -->        
         <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                    <a href="<?php echo base_url('input_meter');?>">
+                    <a href="<?php echo base_url('surat/masuk');?>">
                         <div class="card-box noradius noborder bg-default">
                             <i class="fa fa-envelope float-right text-white"></i> 
                             <h6 class="text-white text-uppercase m-b-20">Surat</h6>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                    <a href="<?php echo base_url('pembayaran');?>">
+                    <a href="<?php echo base_url('surat/keluar');?>">
                         <div class="card-box noradius noborder bg-warning">
                             <i class="fa fa-folder-open float-right text-white"></i> 
                             <h6 class="text-white text-uppercase m-b-20">Surat</h6>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                    <a href="<?php echo base_url('pelanggan');?>">
+                    <a href="<?php echo base_url('surat/disposisi');?>">
                         <div class="card-box noradius noborder bg-danger">
                             <i class="fa fa-paper-plane float-right text-white"></i>
                             <h6 class="text-white text-uppercase m-b-20">Surat</h6>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                    <a href="<?php echo base_url('petugas');?>">
+                    <a href="<?php echo base_url('unit');?>">
                         <div class="card-box noradius noborder bg-success">
                             <i class="fa fa-tags float-right text-white"></i>
                             <h6 class="text-white text-uppercase m-b-120">Unit</h6>

@@ -22,7 +22,7 @@ class Auth extends BaseController
 	{
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
-        $data = $this->userModel->getLogin($username);
+        $data = $this->userModel->where('username', $username)->first();
         if($data){
             $pass = $data['password'];
             $verify_pass = password_verify($password, $pass);
@@ -38,17 +38,17 @@ class Auth extends BaseController
                 return redirect()->to('/home');
             }else{
                 $this->session->setFlashdata('msg', 'Password Salah');
-                return redirect()->to('auth');
+                return redirect()->back()->withInput();
             }
         }else{
             $this->session->setFlashdata('msg', 'Username tidak ditemukan');
-            return redirect()->to('auth');
+            return redirect()->back()->withInput();
         }
 	}
 
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('auth');
+        return redirect('auth');
     }
 }

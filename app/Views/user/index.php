@@ -1,3 +1,6 @@
+<?= $this->extend('layout/page_layout') ?>
+
+<?= $this->section('content') ?>
 <div class="content">            
     <div class="container-fluid">
         <div class="row">
@@ -28,7 +31,8 @@
                                         <th>No</th>
                                         <th>Username</th>
                                         <th>Nama</th> 
-                                        <th>Status</th>                                       
+                                        <th>Unit</th> 
+                                        <th>Level</th>                                       
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>										
@@ -43,7 +47,10 @@
         </div>	
     </div>			
 </div>
-<script src="<?php echo base_url('assets/plugins/datatables/jQuery-2.1.4.min.js') ?>"></script>
+<?= $this->endSection() ?>
+<?= $this->section('script') ?>
+<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/dataTables.bootstrap4.min.js'); ?>"></script>
 <script>
     $(document).ready(function () {
         $.fn.dataTable.ext.errMode = 'throw';
@@ -62,10 +69,12 @@
                 {"mData": "no"},                    
                 {"mData": "username"},
                 {"mData": "nama_pengguna"},
-                {"mData": "status"},
+                {"mData": "kode_unit"},
+                {"mData": "level"},
                 {"mData": "aksi"},
             ]
         });
     });
 
 </script>
+<?= $this->endSection() ?>

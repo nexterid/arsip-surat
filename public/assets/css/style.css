@@ -47,6 +47,15 @@ label {
 .label:empty {
   display: none; }
 
+.label-success {
+  background-color: #16957c !important;
+}
+
+.label-danger {
+  background-color: #ff5d48 !important;
+}
+
+
 img {
     vertical-align: middle; 
 	border: 0; }
