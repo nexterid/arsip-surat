@@ -40,9 +40,7 @@ class Surat extends Conn
     }
 
     public function getSuratKeluar($tanggal)
-    {
-        $role = $_SESSION['role'];   
-        $unit = $_SESSION['kode_unit'];      
+    {    
         $bulan= date('m', strtotime($tanggal));
         $tahun= date('Y', strtotime($tanggal));
         $result= $this->db->table('tbl_agendasrtkeluar')

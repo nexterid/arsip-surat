@@ -121,19 +121,19 @@ class User extends BaseController
     }
 
     public function profil() {
-        $id = $this->session->userdata('uid');
-        $row = $this->M_user->getProfilID($id);
+        $id = $_SESSION['uid'];
+        $row = $this->userModel->find($id);
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('profil_update_action'),
-                'id_user' => set_value('id_user', $row->id_user),
-                'username' => set_value('username', $row->username), 
+                'action' => site_url('user/update_action'),
+                'id_user' => set_value('id_user', $row['id']),
+                'username' => set_value('username', $row['username']), 
                 'password' => set_value('password'),  
-                'nama_pengguna' => set_value('nama_pengguna', $row->nama_pengguna),
-                'usergroup' => $row->usergroup
+                'nama' => set_value('nama', $row['nama']),
+                'usergroup' => $row['role']
             );
-            $this->template->display('user/form_profile', $data);
+            return view('user/form_profile', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('profil'));

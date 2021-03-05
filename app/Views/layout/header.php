@@ -7,7 +7,7 @@
         <ul class="list-inline float-right mb-0">  
             <li class="list-inline-item dropdown notif">
                 <h5>
-                    <small><p class="text-white"><?php echo $_SESSION['nama'];?></p></small>
+                    <small><p class="text-white"><?php echo $_SESSION['nama'].', Kode Unit : '.$_SESSION['kode_unit'];?></p></small>
                 </h5>
             </li>
             <li class="list-inline-item dropdown notif">

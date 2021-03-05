@@ -60,6 +60,23 @@ $routes->group('surat', ['filter' => 'ceklogin'], function($routes) {
 });
 
 // user merupakan nama groupnya
+$routes->group('unit', ['filter' => 'ceklogin'], function($routes) {
+    $routes->get('/', 'Unit::index'); 
+    $routes->get('getdata', 'Unit::view_data');     
+    $routes->get('update', 'Unit::update');
+    $routes->post('simpan', 'Unit::simpanData');
+});
+
+// user merupakan nama groupnya
+$routes->group('klasifikasi', ['filter' => 'ceklogin'], function($routes) {
+    $routes->get('/', 'Klasifikasi::index'); 
+    $routes->get('getdata', 'Klasifikasi::view_data');     
+    $routes->get('update', 'Klasifikasi::update');
+    $routes->get('rumpun', 'Klasifikasi::getRumpun');
+    $routes->post('simpan', 'Klasifikasi::simpanData');
+});
+
+// user merupakan nama groupnya
 $routes->group('user', ['filter' => 'ceklogin'], function($routes) {
     $routes->get('/', 'User::index',['as'=>'user']); 
     $routes->get('view_data', 'User::view_data');     

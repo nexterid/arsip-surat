@@ -1,3 +1,6 @@
+<?= $this->extend('layout/page_layout') ?>
+
+<?= $this->section('content') ?>
 <div class="content">            
     <div class="container-fluid">
         <div class="row">
@@ -17,13 +20,12 @@
 			<div class="col-xl-12">						
                 <div class="card mb-3">  
                     <div class="col-xl-6">
-                        <div class="card-body">															
-                        
+                        <div class="card-body">	
                             <form action="<?php echo $action; ?>" method="post">
-                                <?php echo form_hidden($this->security->get_csrf_token_name(), $this->security->get_csrf_hash()); ?>
+                            <input type="hidden" id="txt_csrfname" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                     <input type="hidden" name="id_user" id="id_user" value="<?= $id_user; ?>" data-parsley-trigger="change" class="form-control" >
                                 <div class="form-group">
-                                    <label for="username">Username<span class="text-danger">*</span> <?php echo form_error('username') ?></label> 
+                                    <label for="username">Username<span class="text-danger">*</span></label> 
                                     <input type="email" name="username" id="username" value="<?= $username; ?>"<?= !empty($username) ? "readonly" : ""?> data-parsley-trigger="change" required="" placeholder="username" class="form-control" >
                                 </div>
                                 <div class="form-group">
@@ -31,12 +33,12 @@
                                     <input type="text" name="usergroup" id="usergroup" disabled value="<?= $usergroup; ?>" data-parsley-trigger="change" required="" placeholder="usergroup" class="form-control" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama_pengguna">Nama Pengguna<span class="text-danger">*</span> <?php echo form_error('nama_pengguna') ?></label>
-                                    <input type="text" name="nama_pengguna" id="nama_pengguna" value="<?= $nama_pengguna; ?>" data-parsley-trigger="change" required="" placeholder="Nama Pengguna" class="form-control" >
+                                    <label for="nama_pengguna">Nama Pengguna<span class="text-danger">*</span></label>
+                                    <input type="text" name="nama" id="nama" value="<?= $nama; ?>" data-parsley-trigger="change" required="" placeholder="Nama Pengguna" class="form-control" >
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="password">Password<span class="text-danger">*</span> <?php echo form_error('password') ?></label>
+                                    <label for="password">Password<span class="text-danger">*</span></label>
                                     <input type="password" name="password" id="password" value="<?= $password; ?>" data-parsley-trigger="change" placeholder="Password" class="form-control" >
                                 </div> 
                                 <div class="form-group text-right m-b-0">
@@ -52,3 +54,4 @@
         </div>	
     </div>			
 </div>
+<?= $this->endSection() ?>

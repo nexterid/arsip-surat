@@ -23,7 +23,7 @@
                         <div class="card-body">	
                             <form action="<?php echo $action; ?>" method="post">                               
                                 <input type="hidden" id="txt_csrfname" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
-                                <input type="hidden" name="id" id="id" value="<?= $id; ?>"<?= !empty($id) ? "readonly" : ""?> data-parsley-trigger="change" class="form-control" >
+                                <input type="hidden" name="id" id="id" value="<?= $id; ?>" data-parsley-trigger="change" class="form-control" >
                                 <div class="form-group">
                                     <label for="username">Username<span class="text-danger">*</span></label> 
                                     <input type="text" name="username" id="username" value="<?= $username; ?>" data-parsley-trigger="change" required="" placeholder="username" class="form-control <?=($validation->hasError('username'))?'is-invalid':'' ?>" >
