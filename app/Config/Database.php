@@ -32,11 +32,11 @@ class Database extends Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		'hostname' => '10.10.11.35',
-		'username' => 'sa',
-		'password' => 'Kr4t0n2020',
-		'database' => 'DBARSIP',
-		'DBDriver' => 'sqlsrv',
+		'hostname' => 'localhost',
+		'username' => '',
+		'password' => '',
+		'database' => '',
+		'DBDriver' => '',
 		'DBPrefix' => '',
 		'pConnect' => false,
 		'DBDebug'  => (ENVIRONMENT !== 'production'),
